@@ -712,6 +712,7 @@ margin-left: 0rem;
 display: flex;
 align-items: center;
 justify-content: center;
+display: none;
 }
 
 .read__more_container .threatmap{
@@ -798,7 +799,8 @@ max-height: 19rem;
   .testimonial__text{
  
   max-height: 21rem;
-  }}
+  }
+}
 @media screen and (max-width: 640px) {
 
  .slider__btn{
@@ -810,10 +812,7 @@ max-height: 19rem;
   .testimonial{
     width: 100%;
   }
-  .testimonial__text{
-    
-    max-height: 19rem;
-  }
+ 
 }
 @media screen and (max-width: 560px) {
   .testimonial__text{
@@ -856,21 +855,14 @@ max-height: 19rem;
   .testimonial__author p{
     font-size: 1.2rem;
   }
-  .slider{
-    height: 155rem;
-  }
+  
   .testimonial__text{
 
     max-height: 26rem;
   }
 }
 
-  @media screen and (max-width: 400px) {
  
-    .testimonial__text{
-      max-height: 26rem;
-    }
-    }
     @media screen and (max-width: 331px) {
      
       .testimonial__text{

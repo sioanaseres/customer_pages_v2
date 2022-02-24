@@ -278,19 +278,22 @@ const slideDiv = document.querySelector(".slider");
 const slideFirst = document.querySelector(".slide__first");
 const testimonialLarge = document.querySelector(".testimonial__first");
 const less = document.querySelector(".less"); 
+const readMore= document.querySelector(".read__more_container")
 
 more.addEventListener("click", function(e) {
 e.preventDefault();
 slideDiv.classList.add("active__read");
 slideFirst.style.height = "100rem";
 testimonialLarge.style.maxHeight = "200rem";
+readMore.style.display = "block";
 })
 
 less.addEventListener("click", function(e) {
 e.preventDefault();
 slideDiv.classList.remove("active__read");
 slideFirst.style.height = "50rem";
-testimonialLarge.style.maxHeight = "22rem";
+testimonialLarge.style.maxHeight = "26rem";
+readMore.style.display = "none";
 })
 
 
