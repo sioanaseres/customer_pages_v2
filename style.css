@@ -357,7 +357,7 @@ h4 {
 
 .filters, .filters__only {
   display: flex;
-  margin: 0 12rem;
+  margin-left:  12rem;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -368,6 +368,7 @@ h4 {
   justify-self: center;
   width: 70%;
   font-size: 1.5rem;
+  margin-right: 12rem;
 }
 
 .select-box {
@@ -474,6 +475,18 @@ h4 {
     }
   }
 
+  @media screen and (max-width: 950px) {
+  
+
+    .filters {
+     display: flex;
+     flex-direction: column;
+    }
+
+    .sort{
+      margin-left: 5rem;
+    }
+  }
   @media screen and (max-width: 755px) {
     .card{
     width: 20rem;
@@ -513,6 +526,7 @@ h4 {
  .sort{
 width: 100%;
 padding-left: 5rem;
+margin-left: 0rem;
 }
        
   }
