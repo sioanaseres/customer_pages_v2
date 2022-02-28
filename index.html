@@ -87,32 +87,40 @@
         <div class="filters__feature">
           <h2 class="section__description">Filter by country</h2>
           <div id="buttons-filter">
-            <button class="button-value" onclick="filterClient('All')">All</button>
-            <button class="button-value" onclick="filterClient('USA')">USA</button>
-            <button class="button-value" onclick="filterClient('UK')">UK</button>
-            <button class="button-value" onclick="filterClient('Germany')">Germany</button>
-            <button class="button-value" onclick="filterClient('China')">China</button>
-            <button class="button-value" onclick="filterClient('France')">France</button>
+            <select name="" id="select-country">
+              <option value="all" >All</option>
+              <option value="Germany" >Germany</option>
+              <option value="United Kingdom" >United Kingdom</option>
+              <option value="China" >China</option>
+              <option value="United States of America" >United States of America</option>
+              <option value="France" >France</option>
+              </select>
           </div>
          </div>
          <div class="filters__feature">
           <h2 class="section__description">Filter by industry</h2>
           <div id="buttons-filter">
-            <button class="button-value" onclick="filterClient('All')">All</button>
-            <button class="button-value" onclick="filterClient('Banking')">Banking</button>
-            <button class="button-value" onclick="filterClient('Education')">Education</button>
-            <button class="button-value" onclick="filterClient('Healthcare')">Healthcare</button>
-            <button class="button-value" onclick="filterClient('Government')">Government</button>
-            <button class="button-value" onclick="filterClient('Audit')">Audit</button>
-            <button class="button-value" onclick="filterClient('Technology')">Technology</button>
+            <select name="" id="select-industry">
+              <option value="all" class="all">All</option>
+              <option value="technology" >Technology & Telecom</option>
+              <option value="banking" >Banking & Finance</option>
+              <option value="audit" >Audit & Advisory</option>
+              <option value="education">Education</option>
+              <option value="healthcare" >Healthcare</option>
+              <option value="government" >Gov & Public Sector</option>
+              </select>
           </div>
         </div>
       </div>
          <div class="filters__feature sort">
           <h2 class="section__description">Order by</h2>
           <div class="select-box">
-            <button id="relevance">Relevance</button>
-            <button id="alphabetical">Alphabetical</button>
+            <select name="" id="sort">
+              <option value="all" class="all">All</option>
+              <option value="relevance" >Relevance</option>
+              <option value="name" >Alphabetical</option>
+             
+              </select>
           </div>
          </div>
         </div>
@@ -250,3 +258,4 @@
   
   </body>
 </html>
+
