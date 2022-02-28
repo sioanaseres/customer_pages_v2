@@ -357,7 +357,7 @@ h4 {
 
 .filters, .filters__only {
   display: flex;
-  margin-left:  12rem;
+  margin-left:  5rem;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -373,39 +373,21 @@ h4 {
 
 .select-box {
   display: flex;
-
   flex-direction: column;
 }
  .select-box{
   width: 50%;
 }
-#buttons-filter button,
-.select-box button{
-  background-color: transparent;
-  padding: 0.8rem 2.5rem;
-  font-family: inherit;
-  margin-top: 1rem;
-  margin-left: 0.3rem;
-  cursor: pointer;
+
+#select-country, #select-industry, #sort{
+  padding: 1rem;
   font-size: 1.8rem;
+  border-radius: 3rem;
+  color: var(--color-primary-darker);
+  background-color: var(--color-primary);
+  outline: none;
   border: none;
-  color: #444;
-  border-bottom: 2px solid #444;
-}
 
-#buttons-filter .button-value:hover,
-#buttons-filter .button-value:active,
-.select-box button:hover,
-.select-box button:active {
-  color: #888;
-  border-bottom: 2px solid #888;
-
-} 
-#buttons-filter .active,
-.select-box .active{
-  background-color: transparent;
-  border-bottom: 5px solid var(--color-primary-darker);
-  transition: all 0.5s;
 }
 
 #customers{
@@ -461,6 +443,17 @@ h4 {
   #customers{
   grid-template-columns: repeat(3,1fr);
    }
+
+   .filters{
+     flex-direction: column;
+  
+
+   }
+
+   .sort{
+     padding-top: 3rem;
+     margin-left: 4rem;
+   }
   }
 
   @media screen and (max-width: 1130px) {
@@ -473,6 +466,8 @@ h4 {
       margin-left: 4rem;
       margin-right: 4rem;
     }
+
+
   }
 
   @media screen and (max-width: 950px) {
@@ -503,16 +498,10 @@ h4 {
       margin-right: 5rem;
       
   }
-  #buttons-filter, .select-box{
-    display: flex;
-    flex-direction: column;
+  .sort{
+      margin-left: 0;
   }
-  #buttons-filter button,
-  .select-box button{
-  padding: 0.3rem 1.5rem;
-   font-size: 1.5rem;
-  
-}
+
 
 .filters__only{
   display: flex;
@@ -545,6 +534,17 @@ margin-left: 0rem;
  
     .section__header{
       font-size: 3rem;
+    }
+
+    .filters{
+      margin-left: 0;
+    }
+
+    #select-country, #select-industry, #sort{
+    padding: 0.5rem;
+      font-size: 1.4rem;
+    
+    
     }
   }
 
