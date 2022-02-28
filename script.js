@@ -39,42 +39,42 @@ const customers = {
   data:[
     {
       name: "Allianz",
-      industry: "Audit",
+      industry: "Banking & Finance",
       country: "Germany",
       relevance: 7,
       image:"img/Allianz.png"
     },
     {
       name: "Deloitte",
-      industry: "Banking",
-      country: "UK",
+      industry: "Banking & Finance",
+      country: "United Kingdom",
       relevance: 7,
       image:"img/Deloitte.png"
     },
     {
       name: "Cathay United Bank",
-      industry: "Banking",
+      industry: "Banking & Finance",
       country: "China",
       relevance: 1,
       image:"img/Cathayunitedbank.png"
     },
     {
       name: "Intel",
-      industry: "Technology",
-      country: "USA",
+      industry: "Technology & Telecom",
+      country: "United States of America",
       relevance: 10,
       image:"img/Intel.png"
     },
     {
       name: "Yale University",
       industry: "Education",
-      country: "USA",
+      country: "United States of America",
       relevance: 10,
       image:"img/Yale.png"
     },
     {
       name: "Orange",
-      industry: "Technology",
+      industry: "Technology & Telecom",
       country: "France",
       relevance: 9,
       image:"img/Orange.png"
@@ -82,28 +82,28 @@ const customers = {
     {
       name: "Johnson & Johnson",
       industry: "Healthcare",
-      country: "UK",
+      country: "United Kingdom",
       relevance: 8,
       image:"img/Johnson.png"
     },
     {
       name: "Vodafone",
-      industry: "Technology",
-      country: "UK",
+      industry: "Technology & Telecom",
+      country: "United Kingdom",
       relevance: 9,
       image:"img/Vodafone.png"
     },
     {
       name: "Accenture",
-      industry: "Audit",
-      country: "UK",
+      industry: "Audit & Advisory",
+      country: "United Kingdom",
       relevance: 7,
       image:"img/Accenture.png"
     },
     {
       name: "U.S. Department of Commerce",
-      industry: "Government",
-      country: "USA",
+      industry: "Gov & Public Sector",
+      country: "United States of America",
       relevance: 10,
       image:"img/USDepartment.png"
     },
@@ -133,79 +133,83 @@ card.forEach(element=>{
 displayCards(customers.data, false)
 
 // Sort 
-const btnSortRelevance = document.getElementById("relevance");
 
-let asc = false;
+const ascendingSort =(objectKey) => {
+  const customersCopy = [...customers.data];
 
-btnSortRelevance.addEventListener("click", function(){
-  console.log(customers.data)
-  let arrayClients = sortArrayBy (customers.data, "relevance", asc);
-  displayCards(arrayClients);
-  btnSortRelevance.classList.add("active");
-  btnSortAlphabetical.classList.remove("active");
-  asc = !asc;
+  customersCopy.sort((a,b) => {
  
-
-})
-
-const btnSortAlphabetical = document.getElementById("alphabetical");
-btnSortAlphabetical.addEventListener("click", function(){
-  let arrayClients = sortArrayBy (customers.data, "name", asc);
-  displayCards(arrayClients);
-  btnSortAlphabetical.classList.add("active");
-  btnSortRelevance.classList.remove("active");
-  asc = !asc;
- 
-
-})
-
-function sortArrayBy (arr, sort, asc) {
-arr.sort(function(a,b) {
-  if(a[sort] < b[sort ]) return 1;
-  if(a[sort] > b[sort ]) return -1;
-  return 0;
-})
-
-if(asc) arr.reverse()
-
-return arr
-}
-
-// Filter 
-const filterClient = function(value){
-  const buttonValue = document.querySelectorAll(".button-value");
-
-   buttonValue.forEach((button) =>{
+    if (a[objectKey] < b[objectKey]) return 1
   
-    if(value.toUpperCase() === button.innerText.toUpperCase()){
-      button.classList.add("active")
-    } else{
-      button.classList.remove("active");
-    }
-    });
-    const elements = document.querySelectorAll(".card");
-   
-    elements.forEach(element =>{
-     
-      if(value === "All"){
-            element.classList.remove("hide");
-      } else {
-        if(element.classList.contains(value)){
-          element.classList.remove("hide");
-          
-        } else {
-          element.classList.add("hide")
-        }
-      }
+  
+    if (a[objectKey]> b[objectKey]) return -1
+  })
+
+  return customersCopy;
+  
+}
+  
+const selectSort = document.querySelector("#sort");
+
+selectSort.addEventListener("change", function (event) {
+
+ containerCards.innerHTML = "";
+
+  const results = ascendingSort(event.target.value);
+ displayCards(results);
+})
+
+// Filter by Country
+
+const filterByCountry = (country) => {
+
+  country = country.toLowerCase();
+  if (country === "all") return customers.data;
+
+  const filterResult = customers.data.filter(el => {
+    return el.country.toLowerCase().includes(country)
     })
+  return filterResult;
+
 }
 
 
+const selectCountry = document.querySelector("#select-country");
 
-window.onload = () => {
-  filterClient("All")
+selectCountry.addEventListener("change", function (event) {
+
+
+ containerCards.innerHTML = "";
+
+  const results = filterByCountry(event.target.value);
+ displayCards(results);
+})
+
+// Filter by Industry
+
+const filterByIndustry = (industry) => {
+
+  industry = industry.toLowerCase();
+  if (industry === "all") return customers.data;
+
+  const filterResult = customers.data.filter(el => {
+    return el.industry.toLowerCase().includes(industry)
+    })
+  return filterResult;
+
 }
 
+
+const selectIndustry = document.querySelector("#select-industry");
+
+selectIndustry.addEventListener("change", function (event) {
+ 
+
+ containerCards.innerHTML = "";
+
+  const results = filterByIndustry(event.target.value);
+ displayCards(results);
+})
 
 ///////////////////////////////////////
 // Menu fade animation
